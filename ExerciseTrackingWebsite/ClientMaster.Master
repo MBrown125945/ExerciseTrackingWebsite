@@ -1,0 +1,152 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ClientMaster.master.cs" Inherits="ExerciseTrackingWebsite.ClientMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    
+    <%--bootstrap css--%>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <%--datatables css--%>
+    <link href="datatables/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <%--fontawesome css--%>
+    <link href="fontawesome/css/all.css" rel="stylesheet" />
+
+    <%--custom css--%>
+    <link href="css/customStyleSheet.css" rel="stylesheet" />
+
+    <%--Jquery--%>
+    
+    <%--bootstrap js--%>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <%--popper js--%>
+    <script src="bootstrap/js/popper.min.js"></script>
+    <%--Datatable js--%>
+    <script src="datatables/js/jquery.dataTables.min.js"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="border border-primary rounded border-2">
+
+    <form id="form1" runat="server">
+        
+        <div>
+            <!-- navigation bar creation -->
+            <nav class = "navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="#">
+                    <img src="images/Journal.png" width="30" height="40"/>
+                    Exercise Tracker
+                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" 
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navbar buttons for Navigation -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="ClientHomePage.aspx">Home</a>
+                        </li>                        
+                    </ul>
+
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <!-- Login/Sign-up btn -->
+                            <asp:LinkButton class="nav-link" ID="navBtnClientLogin" runat="server"
+                            href="ClientLoginPage.aspx">User Login/Sign-up</asp:LinkButton>
+                        </li>
+
+                        <li class="nav-item active">
+                            <!-- start exercise btn -->
+                            <asp:LinkButton class="nav-link" ID="navBtnStartExercise" runat="server"
+                            OnClick="NavBtnStartExercise_Click" Visible="false">Start Exercise</asp:LinkButton>
+                        </li>
+
+                        <li class="nav-item active">
+                            <!-- exercise journal btn -->
+                            <asp:LinkButton class="nav-link" ID="navBtnExerciseJournal" runat="server"
+                            OnClick="NavBtnJournal_Click" Visible="false">Journal</asp:LinkButton>
+                        </li>
+
+                        <li class="nav-item active">
+                            <!-- client profile btn -->
+                            <asp:LinkButton class="nav-link" ID="navBtnClientProfile" runat="server"
+                            href="ClientProfilePage.aspx" Visible="False">Profile</asp:LinkButton>
+                        </li>
+
+                        <li class="nav-item active">
+                            <!-- logout btn -->
+                            <asp:LinkButton class="nav-link" ID="navBtnClientLogout" runat="server" Visible="False" OnClick="navBtnClientLogout_Click"
+                            >Logout</asp:LinkButton>
+                        </li>
+                    </ul>
+                </div>
+
+            </nav>
+        </div>
+
+        <!-- Main content placeholder -->
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <!-- Main content placeholder -->
+
+        <footer>
+            <div id="footer1" class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                        <!-- trainer footer buttons -->
+                        <p>
+                            <!-- trainer login btn -->
+                            <asp:LinkButton class="footerlinks" ID="btnTrainerLogin" runat="server" OnClick="btnTrainerLogin_Click"
+                                >Trainer Login</asp:LinkButton>
+                            &nbsp;
+                            <!-- client list btn -->
+                            <asp:LinkButton class="footerlinks" ID="btnTrainerClientList" runat="server" OnClick="btnTrainerClientList_Click"
+                                Visible="false">Client List</asp:LinkButton>
+                            &nbsp;
+                            <!-- Prescribe Routine btn -->
+                            <asp:LinkButton class="footerlinks" ID="btnPrescribeRoutine" runat="server" OnClick="btnTrainerPrescribeRoutine_Click"
+                                Visible ="false">Prescribe Routine</asp:LinkButton>
+                            &nbsp;
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="footer2" class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                        <!--Admin footer buttons-->
+                        <p>
+                            <!-- admin login btn -->
+                            <asp:LinkButton class="footerlinks" ID="btnAdminLogin" runat="server"
+                                OnClick="btnAdminLogin_CLick">Admin Login</asp:LinkButton>
+                            &nbsp;
+                            <!-- trainer list btn -->
+                            <asp:LinkButton class="footerlinks" ID="btnAdminTrainerList" runat="server" Visible ="False"
+                                OnClick="btnAdminTrainerList_CLick">Trainer List</asp:LinkButton>
+                            &nbsp;
+                            <!-- verify trainer btn -->
+                            <asp:LinkButton class="footerlinks" ID="btnAdminVerifyTrainer" runat="server" Visible="False"
+                                OnClick="btnAdminVerifyTrainer_Click">Verify Trainer Accounts</asp:LinkButton>
+                            &nbsp
+                            <!-- Add exercise -->
+                            <asp:LinkButton class="footerlinks" ID="btnAdminAddExercise" runat="server" Visible="False" 
+                                OnClick="btnAdminAddExercise_Click">Add Exercise</asp:LinkButton>
+                            &nbsp
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </form>
+</body>
+</html>
